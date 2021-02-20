@@ -8,5 +8,7 @@ q2: how many courses does stef organise
 g.V('stef.1').outE('organise').count()
 q3: name of the students that remsey teachs.
 g.V('remsey.1').out('teaches').in('enroll').values('fname','lname')
+q4: friends suggestion for jetse.
+g.V('jetse.1').as('exclude').out('works').in().as('sug').where(neq('exclude')).in('knows').as('b').out('teaches').in('enroll').as('std').union(select('sug').by('fname'),select('b').by('fname'),select('std').by('fname')).dedup()
 
 try more ......
