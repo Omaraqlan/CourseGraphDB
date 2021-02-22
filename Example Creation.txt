@@ -1,0 +1,33 @@
+(Create Cosmos DB with partion key /type) or (deploy this template in Custom Deployment --> build your own template option then upload the file in the zip)
+Creating Companies---
+g.addV('company').property('id','itph.1').property('type','company').property('name','ITPH Academy')
+g.addV('company').property('id','skills.1').property('name','Skills 4 IT').property('type','company')	
+Creating Persons---
+g.addV('person').property('id','stef.1').property('type','person').property('fname','stef').property('lname','van de berg')
+g.addV('person').property('id','jetse.1').property('type','person').property('fname','jetse').property('lname','van de groote')
+g.addV('person').property('id','remsey.1').property('type','person').property('fname','remsey').property('lname','mailjard')
+g.addV('person').property('id','sunil.1').property('type','person').property('fname','sunil').property('lname','sunil')
+g.addV('person').property('id','ufuk.1').property('type','person').property('fname','ufuk').property('lname','horizon')
+g.addV('person').property('id','ali.1').property('type','person').property('fname','ali').property('lname','yusef')
+Creating Courses---
+g.addV('course').property('id','data.1').property('type','course').property('name','Data Engineering')
+g.addV('course').property('id','csharp.1').property('type','course').property('name','c# programming')
+g.addV('course').property('id','devops.1').property('type','course').property('name','Devops engineering')
+Creating Certificates---
+g.addV('certificate').property('id','az.900').property('type','certificate').property('name','Azure fundmentals')
+g.addV('certificate').property('id','dp.203').property('type','certificate').property('name','Azure Data Engineering')
+Creating Edges------
+g.V('stef.1').addE('works').property('since',2011).to(g.V('itph.1'))
+g.V('jetse.1').addE('works').property('since',2014).to(g.V('itph.1'))
+g.V('remsey.1').addE('knows').to(g.V('stef.1'))
+g.V('remsey.1').addE('teaches').to(g.V('data.1'))
+g.V('stef.1').addE('organise').to(g.V('data.1'))
+g.V('stef.1').addE('organise').to(g.V('csharp.1'))
+g.V('stef.1').addE('organise').to(g.V('devops.1'))
+g.V('sunil.1').addE('enroll').to(g.V('data.1'))
+g.V('ufuk.1').addE('enroll').to(g.V('data.1'))
+g.V('ali.1').addE('enroll').to(g.V('data.1'))
+g.V('ali.1').addE('owns').property('mark',750).to(g.V('az.900'))
+g.V('ufuk.1').addE('owns').property('mark',760).to(g.V('az.900'))
+g.V('sunil.1').addE('owns').property('mark',800).to(g.V('az.900'))
+
